@@ -1,0 +1,520 @@
+<mxfile host="65bd71144e">
+    <diagram id="layer-arch" name="1-域分层架构">
+        <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1600" pageHeight="1184" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title1" value="OpenHuman 智能体 — 域分层架构" style="text=1;html=1;strokeColor=none;fillColor=none;align=center;fontSize=22;fontStyle=1;fontColor=#1a1a1a;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="16" width="1200" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="L1" value="" style="swimlane=1;horizontal=1;whiteSpace=wrap;html=1;startSize=8;fillColor=#E8F0FE;strokeColor=#4A83DD;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="1520" height="132" as="geometry"/>
+                </mxCell>
+                <mxCell id="L1a" value="React&#10;Conversations&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;桌面聊天页，收发消息&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#4A83DD;fontSize=11;" parent="L1" vertex="1">
+                    <mxGeometry x="20" y="26.400000000000002" width="210" height="72.60000000000001" as="geometry"/>
+                </mxCell>
+                <mxCell id="L1b" value="ToolTimeline&#10;ProcessSource&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;工具步骤时间线 UI&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#4A83DD;fontSize=11;" parent="L1" vertex="1">
+                    <mxGeometry x="250" y="26.400000000000002" width="230" height="72.60000000000001" as="geometry"/>
+                </mxCell>
+                <mxCell id="L1c" value="Tauri IPC&#10;socket&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;壳层 IPC，转发 RPC&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#4A83DD;fontSize=11;" parent="L1" vertex="1">
+                    <mxGeometry x="500" y="26.400000000000002" width="190" height="72.60000000000001" as="geometry"/>
+                </mxCell>
+                <mxCell id="L1d" value="Redux&#10;AgentProgress&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;Redux 缓存进度状态&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#4A83DD;fontSize=11;" parent="L1" vertex="1">
+                    <mxGeometry x="710" y="26.400000000000002" width="210" height="72.60000000000001" as="geometry"/>
+                </mxCell>
+                <mxCell id="L1e" value="Socket 进度流&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;WebSocket 实时进度&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#4A83DD;fontSize=11;" vertex="1" parent="L1">
+                    <mxGeometry x="940" y="26.400000000000002" width="190" height="72.60000000000001" as="geometry"/>
+                </mxCell>
+                <mxCell id="L1_lbl" value="L1  表现层（UI / Shell）" style="text=1;html=1;strokeColor=#4A83DD;fillColor=#E8F0FE;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#1a1a1a;spacingLeft=10;spacingRight=10;rounded=1;whiteSpace=wrap;" vertex="1" parent="L1">
+                    <mxGeometry y="104" width="560" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="L2" value="" style="swimlane=1;horizontal=1;whiteSpace=wrap;html=1;startSize=8;fillColor=#FFF8E1;strokeColor=#F9A825;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="202" width="1520" height="132" as="geometry"/>
+                </mxCell>
+                <mxCell id="L2a" value="ops.rs&#10;approval&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;Web 聊天入口 + 审批&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#F9A825;fontSize=11;" parent="L2" vertex="1">
+                    <mxGeometry x="20" y="24" width="190" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="L2b" value="run_chat_task&#10;session 缓存&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;线程级 Agent 复用&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#F9A825;fontSize=11;" parent="L2" vertex="1">
+                    <mxGeometry x="230" y="24" width="210" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="L2c" value="progress bridge&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;进度事件 → socket&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#F9A825;fontSize=11;" parent="L2" vertex="1">
+                    <mxGeometry x="460" y="24" width="180" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="L2d" value="web_errors&#10;429 分类&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;429 限流/配额分类&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#F9A825;fontSize=11;" parent="L2" vertex="1">
+                    <mxGeometry x="660" y="24" width="200" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="L2e" value="triage&#10;(外部触发)&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;外部触发入口（非聊天）&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=11;dashed=1;" parent="L2" vertex="1">
+                    <mxGeometry x="880" y="24" width="190" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="L2_lbl" value="L2  渠道层  channels/providers/web/" style="text=1;html=1;strokeColor=#F9A825;fillColor=#FFF8E1;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#1a1a1a;spacingLeft=10;spacingRight=10;rounded=1;whiteSpace=wrap;" vertex="1" parent="L2">
+                    <mxGeometry y="104" width="560" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3" value="" style="swimlane=1;horizontal=1;whiteSpace=wrap;html=1;startSize=8;fillColor=#E3F2FD;strokeColor=#1565C0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="354" width="1520" height="434" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3sess" value="harness/session/&#10;Agent · turn/&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;有状态会话，turn 入口&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#BBDEFB;strokeColor=#1565C0;fontSize=11;fontStyle=1;" parent="L3" vertex="1">
+                    <mxGeometry x="20" y="24" width="220" height="82" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3tri" value="triage/&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;webhook/cron 分类&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#1565C0;fontSize=11;" parent="L3" vertex="1">
+                    <mxGeometry x="20" y="116" width="220" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3pr" value="prompts/&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;SOUL/IDENTITY 等提示&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#1565C0;fontSize=11;" parent="L3" vertex="1">
+                    <mxGeometry x="20" y="188" width="220" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3disp" value="dispatcher.rs&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;Native/XML 工具解析&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#1565C0;fontSize=11;" parent="L3" vertex="1">
+                    <mxGeometry x="20" y="260" width="220" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3eng" value="★ harness/engine/&#10;run_turn_engine&#10;(唯一工具循环)&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#c5dafb;&quot;&gt;唯一 LLM+工具循环&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=top;spacingTop=4;fillColor=#4A83DD;strokeColor=#2E5A9E;fontColor=#ffffff;fontSize=12;fontStyle=1;" parent="L3" vertex="1">
+                    <mxGeometry x="270" y="24" width="300" height="92" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3seams" value="Seams&#10;ToolSource · TurnObserver&#10;ProgressReporter · Parser&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;引擎依赖注入接口&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#E8F0FE;strokeColor=#4A83DD;fontSize=10;" parent="L3" vertex="1">
+                    <mxGeometry x="270" y="126" width="300" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3mem" value="memory_loader.rs&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;每轮前记忆召回&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#1565C0;fontSize=11;" parent="L3" vertex="1">
+                    <mxGeometry x="270" y="208" width="300" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3sub" value="subagent_runner&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;子智能体 mini-loop&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#1565C0;fontSize=11;" parent="L3" vertex="1">
+                    <mxGeometry x="600" y="24" width="200" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3fork" value="fork_context&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;父 turn 上下文 fork&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#1565C0;fontSize=11;" parent="L3" vertex="1">
+                    <mxGeometry x="600" y="96" width="200" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3tools" value="spawn_subagent&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;委托子 agent 工具&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#1565C0;fontSize=11;" parent="L3" vertex="1">
+                    <mxGeometry x="600" y="168" width="200" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3loop" value="tool_loop / bus&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;轻量循环 / 事件总线&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#1565C0;fontSize=11;" parent="L3" vertex="1">
+                    <mxGeometry x="600" y="240" width="200" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3prog" value="progress.rs&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;AgentProgress → UI&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#1565C0;fontSize=11;" parent="L3" vertex="1">
+                    <mxGeometry x="830" y="24" width="200" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3arch" value="archivist&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;turn 归档（同步侧）&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#1565C0;fontSize=11;" parent="L3" vertex="1">
+                    <mxGeometry x="830" y="96" width="200" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3rpc" value="schemas RPC&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;agent.* JSON-RPC&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#1565C0;fontSize=11;" parent="L3" vertex="1">
+                    <mxGeometry x="830" y="168" width="200" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3comp" value="compaction&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;工具结果/context 压缩&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#1565C0;fontSize=11;" vertex="1" parent="L3">
+                    <mxGeometry x="830" y="240" width="200" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_sess_eng" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;strokeColor=#1565C0;" parent="L3" source="L3sess" target="L3eng" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_eng_sub" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;strokeColor=#1565C0;dashed=1;" parent="L3" source="L3eng" target="L3sub" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3_lbl" value="L3  智能体域  src/openhuman/agent/" style="text=1;html=1;strokeColor=#1565C0;fillColor=#E3F2FD;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#1a1a1a;spacingLeft=10;spacingRight=10;rounded=1;whiteSpace=wrap;" vertex="1" parent="L3">
+                    <mxGeometry x="12" y="398" width="560" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="L4" value="" style="swimlane=1;horizontal=1;whiteSpace=wrap;html=1;startSize=8;fillColor=#F5F5F5;strokeColor=#616161;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="808" width="1520" height="132" as="geometry"/>
+                </mxCell>
+                <mxCell id="L4a" value="inference/provider&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;LLM HTTP 流式请求&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#616161;fontSize=10;" parent="L4" vertex="1">
+                    <mxGeometry x="20" y="24" width="190" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="L4b" value="tools/&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;各领域工具实现&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#616161;fontSize=10;" parent="L4" vertex="1">
+                    <mxGeometry x="230" y="24" width="190" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="L4c" value="memory/&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;记忆存储与检索&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#616161;fontSize=10;" parent="L4" vertex="1">
+                    <mxGeometry x="440" y="24" width="190" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="L4d" value="context/&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;上下文窗口 guard&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#616161;fontSize=10;" parent="L4" vertex="1">
+                    <mxGeometry x="650" y="24" width="190" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="L4e" value="security/approval&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;权限策略 + 审批门&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#616161;fontSize=10;" parent="L4" vertex="1">
+                    <mxGeometry x="860" y="24" width="190" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="L4f" value="agent_registry&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;内置 archetype 定义&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#616161;fontSize=10;" parent="L4" vertex="1">
+                    <mxGeometry x="1070" y="24" width="190" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="L4g" value="config/&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;workload 模型配置&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#616161;fontSize=10;" parent="L4" vertex="1">
+                    <mxGeometry x="1280" y="24" width="190" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="L4_lbl" value="L4  协作域（agent 组合但不拥有）" style="text=1;html=1;strokeColor=#616161;fillColor=#F5F5F5;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#1a1a1a;spacingLeft=10;spacingRight=10;rounded=1;whiteSpace=wrap;" vertex="1" parent="L4">
+                    <mxGeometry x="12" y="96" width="560" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="L5" value="" style="swimlane=1;horizontal=1;whiteSpace=wrap;html=1;startSize=8;fillColor=#E8F5E9;strokeColor=#2E7D32;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="960" width="1520" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="L5a" value="archivist&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;情景记忆 ingest&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#2E7D32;fontSize=11;" parent="L5" vertex="1">
+                    <mxGeometry x="20" y="24" width="230" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="L5b" value="learning/&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;reflection / 工具学习&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#2E7D32;fontSize=11;" parent="L5" vertex="1">
+                    <mxGeometry x="280" y="24" width="230" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="L5c" value="cost.rs&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;turn token 成本统计&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=top;spacingTop=4;fillColor=#ffffff;strokeColor=#2E7D32;fontSize=11;" parent="L5" vertex="1">
+                    <mxGeometry x="540" y="24" width="230" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="L5_lbl" value="L5  异步 Post-Turn（用户已看到回复后）" style="text=1;html=1;strokeColor=#2E7D32;fillColor=#E8F5E9;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#1a1a1a;spacingLeft=10;spacingRight=10;rounded=1;whiteSpace=wrap;" vertex="1" parent="L5">
+                    <mxGeometry x="12" y="84" width="560" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;strokeColor=#4A83DD;" parent="1" source="L1" target="L2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;strokeColor=#F9A825;" parent="1" source="L2" target="L3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e34" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;strokeColor=#1565C0;" parent="1" source="L3" target="L4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e45" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;strokeColor=#616161;dashed=1;" parent="1" source="L3" target="L5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="note1" value="原则：agent 域负责跑完一整轮 LLM + 工具循环；模型 HTTP、工具实现、记忆、渠道在外层。" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#1a1a1a;align=center;verticalAlign=middle;fillColor=#FFFDE7;strokeColor=#F9A825;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="1100" width="1520" height="44" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="e2e-flow" name="2-端到端调用链">
+        <mxGraphModel dx="1126" dy="551" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="750" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="t2" value="端到端调用链（桌面 Conversations）" style="text=1;html=1;strokeColor=none;fillColor=none;align=center;fontSize=20;fontStyle=1;fontColor=#1a1a1a;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="16" width="1100" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="s1" value="1&#10;UI&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;Conversations 发消息&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#4A83DD;fontColor=#1a1a1a;fontSize=11;align=center;verticalAlign=top;spacingTop=4;;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="70" width="150" height="78" as="geometry"/>
+                </mxCell>
+                <mxCell id="s2" value="2&#10;Tauri&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;core_rpc_relay 转发&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#4A83DD;fontColor=#1a1a1a;fontSize=11;align=center;verticalAlign=top;spacingTop=4;;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="70" width="150" height="78" as="geometry"/>
+                </mxCell>
+                <mxCell id="s3" value="3&#10;web/ops&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;run_chat_task 入口&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#F9A825;fontColor=#1a1a1a;fontSize=11;align=center;verticalAlign=top;spacingTop=4;;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="70" width="150" height="78" as="geometry"/>
+                </mxCell>
+                <mxCell id="s4" value="4&#10;run_task&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;会话任务调度&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#F9A825;fontColor=#1a1a1a;fontSize=11;align=center;verticalAlign=top;spacingTop=4;;" parent="1" vertex="1">
+                    <mxGeometry x="570" y="70" width="150" height="78" as="geometry"/>
+                </mxCell>
+                <mxCell id="s5" value="5&#10;run_single&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;Agent::run_single&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontColor=#1a1a1a;fontSize=11;align=center;verticalAlign=top;spacingTop=4;;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="740" y="70" width="150" height="78" as="geometry"/>
+                </mxCell>
+                <mxCell id="s6" value="6&#10;run_turn&#10;_engine&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#c5dafb;&quot;&gt;工具循环核心&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A83DD;strokeColor=#2E5A9E;fontColor=#ffffff;fontSize=11;align=center;verticalAlign=top;spacingTop=4;;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="910" y="70" width="150" height="78" as="geometry"/>
+                </mxCell>
+                <mxCell id="s7" value="7&#10;回复 UI&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;流式回复 + 时间线&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#1a1a1a;fontSize=11;align=center;verticalAlign=top;spacingTop=4;;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="1090" y="70" width="150" height="78" as="geometry"/>
+                </mxCell>
+                <mxCell id="es12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" parent="1" source="s1" target="s2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="es23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" parent="1" source="s2" target="s3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="es34" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" parent="1" source="s3" target="s4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="es45" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" parent="1" source="s4" target="s5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="es56" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" parent="1" source="s5" target="s6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="es67" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" parent="1" source="s6" target="s7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="turnbox" value="" style="swimlane=1;horizontal=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;startSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="160" width="1320" height="156" as="geometry"/>
+                </mxCell>
+                <mxCell id="t_a" value="resume&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;恢复中断的 turn&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1565C0;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="turnbox" vertex="1">
+                    <mxGeometry x="40" y="18" width="130" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="t_b" value="system&#10;prompt&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;组装 system prompt&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1565C0;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="turnbox" vertex="1">
+                    <mxGeometry x="190" y="18" width="130" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="t_c" value="memory&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;MemoryLoader 召回&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1565C0;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="turnbox" vertex="1">
+                    <mxGeometry x="340" y="18" width="130" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="t_d" value="super&#10;context&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;首 turn 预研（可选）&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;dashed=1;" parent="turnbox" vertex="1">
+                    <mxGeometry x="490" y="18" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="t_e" value="parent&#10;ctx&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;子 agent 父上下文&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1565C0;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="turnbox" vertex="1">
+                    <mxGeometry x="640" y="18" width="130" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="t_f" value="run_turn&#10;_engine&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#c5dafb;&quot;&gt;进入统一引擎&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A83DD;strokeColor=#2E5A9E;fontColor=#ffffff;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;fontStyle=1;" parent="turnbox" vertex="1">
+                    <mxGeometry x="790" y="18" width="150" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="t_g" value="post&#10;hooks&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;archivist 等 hook&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;dashed=1;" parent="turnbox" vertex="1">
+                    <mxGeometry x="960" y="18" width="140" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="turnbox_lbl" value="Agent::turn 内部（第 5 步）" style="text=1;html=1;strokeColor=#1565C0;fillColor=#E3F2FD;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#1a1a1a;spacingLeft=10;spacingRight=10;rounded=1;whiteSpace=wrap;" vertex="1" parent="turnbox">
+                    <mxGeometry x="12" y="120" width="560" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="engbox" value="" style="swimlane=1;horizontal=1;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#4A83DD;startSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="336" width="1320" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="i1" value="Context&#10;Guard&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;token budget 裁剪&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4A83DD;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="engbox" vertex="1">
+                    <mxGeometry x="30" y="18" width="115" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="i2" value="stop&#10;hooks&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;迭代/预算上限检查&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4A83DD;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="engbox" vertex="1">
+                    <mxGeometry x="160" y="18" width="115" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="i3" value="Provider&#10;.chat&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;Provider.chat 流式&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#F9A825;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="engbox" vertex="1">
+                    <mxGeometry x="290" y="18" width="115" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="i4" value="Response&#10;Parser&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;解析 tool_calls&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4A83DD;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="engbox" vertex="1">
+                    <mxGeometry x="420" y="18" width="115" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="i6" value="Tool&#10;Source&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;执行工具 + 审批&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#616161;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="engbox" vertex="1">
+                    <mxGeometry x="680" y="18" width="115" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="i7" value="summarizer&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;超大结果压缩&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#4A83DD;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="engbox" vertex="1">
+                    <mxGeometry x="810" y="18" width="115" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="i8" value="append&#10;history&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;写入 history&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4A83DD;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="engbox" vertex="1">
+                    <mxGeometry x="940" y="18" width="115" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="i5" value="有&#10;工具?&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;是否继续循环&lt;/font&gt;" style="rhombus=1;whiteSpace=wrap;html=1;fillColor=#FFE082;strokeColor=#F9A825;fontColor=#1a1a1a;fontSize=11;align=center;verticalAlign=top;spacingTop=4;" parent="engbox" vertex="1">
+                    <mxGeometry x="555" y="14" width="100" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="i9" value="返回&#10;最终文本&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#c5dafb;&quot;&gt;无工具则结束&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;fontStyle=1;" parent="engbox" vertex="1">
+                    <mxGeometry x="547.5" y="106" width="115" height="66" as="geometry"/>
+                </mxCell>
+                <mxCell id="ei12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="engbox" source="i1" target="i2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ei23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="engbox" source="i2" target="i3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ei34" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="engbox" source="i3" target="i4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ei45" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="engbox" source="i4" target="i5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ei56" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#616161;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="engbox" source="i5" target="i6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ei67" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="engbox" source="i6" target="i7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ei78" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="engbox" source="i7" target="i8">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ei5no" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2E7D32;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="engbox" source="i5" target="i9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="engbox_lbl" value="run_turn_engine 每轮 iteration（第 6 步）" style="text=1;html=1;strokeColor=#4A83DD;fillColor=#E8F0FE;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#1a1a1a;spacingLeft=10;spacingRight=10;rounded=1;whiteSpace=wrap;" vertex="1" parent="engbox">
+                    <mxGeometry x="12" y="204" width="560" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="altbox" value="" style="swimlane=1;horizontal=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#616161;startSize=8;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="596" width="700" height="114" as="geometry"/>
+                </mxCell>
+                <mxCell id="alt1" value="Agent::turn&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;Web 聊天主路径&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" vertex="1" parent="altbox">
+                    <mxGeometry x="30" y="18" width="200" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="alt2" value="run_tool_call_loop&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;bus agent.run_turn&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#616161;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" vertex="1" parent="altbox">
+                    <mxGeometry x="250" y="18" width="200" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="alt3" value="run_subagent&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;spawn 委托路径&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#616161;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" vertex="1" parent="altbox">
+                    <mxGeometry x="480" y="18" width="200" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="altbox_lbl" value="三条入口共用 run_turn_engine" style="text=1;html=1;strokeColor=#616161;fillColor=#F5F5F5;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#1a1a1a;spacingLeft=10;spacingRight=10;rounded=1;whiteSpace=wrap;" vertex="1" parent="altbox">
+                    <mxGeometry x="12" y="78" width="560" height="28" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="subagent" name="3-子智能体委托">
+        <mxGraphModel dx="1126" dy="551" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="820" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="st" value="子智能体委托流程" style="text=1;html=1;strokeColor=none;fillColor=none;align=center;fontSize=20;fontStyle=1;fontColor=#1a1a1a;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="16" width="700" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="parent" value="父 Agent::turn&#10;(有状态 history)&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;父会话，有 history&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontColor=#1a1a1a;fontSize=11;align=center;verticalAlign=top;spacingTop=4;;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="70" width="220" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="spawn" value="spawn_subagent&#10;agent/tools/&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;工具入口 spawn_subagent&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontColor=#1a1a1a;fontSize=11;align=center;verticalAlign=top;spacingTop=4;;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="150" width="220" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="runsub" value="run_subagent&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#c5dafb;&quot;&gt;run_subagent 主逻辑&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A83DD;strokeColor=#2E5A9E;fontColor=#ffffff;fontSize=11;align=center;verticalAlign=top;spacingTop=4;;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="240" width="220" height="66" as="geometry"/>
+                </mxCell>
+                <mxCell id="inner" value="run_inner_loop&#10;(mini engine)&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#c5dafb;&quot;&gt;子循环 run_inner_loop&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A83DD;strokeColor=#2E5A9E;fontColor=#ffffff;fontSize=11;align=center;verticalAlign=top;spacingTop=4;;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="520" width="220" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="result" value="ToolResult&#10;(紧凑文本)&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;紧凑文本 ToolResult&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#1a1a1a;fontSize=11;align=center;verticalAlign=top;spacingTop=4;;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="620" width="220" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="back" value="回写父 history&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;写回父 history&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontColor=#1a1a1a;fontSize=11;align=center;verticalAlign=top;spacingTop=4;;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="720" width="220" height="66" as="geometry"/>
+                </mxCell>
+                <mxCell id="registry" value="AgentDefinitionRegistry&#10;agent_registry/agents/&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;加载 agent.toml 定义&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#616161;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="150" width="260" height="76" as="geometry"/>
+                </mxCell>
+                <mxCell id="mode" value="模式?&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;typed 或 fork&lt;/font&gt;" style="rhombus=1;whiteSpace=wrap;html=1;fillColor=#FFE082;strokeColor=#F9A825;fontColor=#1a1a1a;fontSize=12;align=center;verticalAlign=top;spacingTop=4;" parent="1" vertex="1">
+                    <mxGeometry x="545" y="330" width="130" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="typed" value="Typed 模式&#10;窄 prompt + 工具过滤&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;窄 prompt + 工具过滤&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1565C0;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="430" width="210" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="fork" value="Fork 模式&#10;KV-cache 前缀复用&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;KV-cache 前缀复用&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="1" vertex="1">
+                    <mxGeometry x="770" y="430" width="210" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="ctxnote" value="ParentExecutionContext&#10;fork_context.rs&#10;(spawn 须在父 turn 内)&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;须在父 turn 内调用&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="240" width="240" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="sp1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" parent="1" source="parent" target="spawn" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="sp3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" parent="1" source="spawn" target="runsub" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="sp4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" parent="1" source="runsub" target="mode" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="sp5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" parent="1" source="mode" target="typed" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="sp6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" parent="1" source="mode" target="fork" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="sp7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" parent="1" source="typed" target="inner" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="sp8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" parent="1" source="fork" target="inner" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="sp9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" parent="1" source="inner" target="result" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="sp10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" parent="1" source="result" target="back" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="sp11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;dashed=1;" parent="1" source="back" target="parent" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="sp2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#616161;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;dashed=1;" edge="1" parent="1" source="spawn" target="registry">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="triage-model" name="4-触发器与模型路由">
+        <mxGraphModel dx="1126" dy="551" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="656" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="tt" value="外部触发 &amp; 模型路由" style="text=1;html=1;strokeColor=none;fillColor=none;align=center;fontSize=20;fontStyle=1;fontColor=#1a1a1a;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="16" width="700" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="tri_lane" value="" style="swimlane=1;horizontal=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#F9A825;startSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="60" width="1320" height="144" as="geometry"/>
+                </mxCell>
+                <mxCell id="tr1" value="webhook / cron&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;webhook / cron 入站&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#F9A825;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="tri_lane" vertex="1">
+                    <mxGeometry x="50" y="18" width="150" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="tr2" value="TriggerEnvelope&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;统一触发信封&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#F9A825;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="tri_lane" vertex="1">
+                    <mxGeometry x="220" y="18" width="160" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="tr3" value="run_triage&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;小模型分类决策&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE082;strokeColor=#F9A825;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="tri_lane" vertex="1">
+                    <mxGeometry x="400" y="18" width="150" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="tr6" value="apply_decision&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;Drop/Notify/Spawn&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;fontStyle=1;" parent="tri_lane" vertex="1">
+                    <mxGeometry x="580" y="18" width="240" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="tr7" value="→ Agent::turn&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;进入 Agent::turn&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;fontStyle=1;" parent="tri_lane" vertex="1">
+                    <mxGeometry x="850" y="18" width="160" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="tr_e1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#F9A825;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="tri_lane" source="tr1" target="tr2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tr_e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#F9A825;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="tri_lane" source="tr2" target="tr3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tr_e4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#F9A825;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="tri_lane" source="tr3" target="tr6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tr_e5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1565C0;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="tri_lane" source="tr6" target="tr7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tri_lane_lbl" value="A. 外部触发 Triage（用户聊天不经过）" style="text=1;html=1;strokeColor=#F9A825;fillColor=#FFF8E1;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#1a1a1a;spacingLeft=10;spacingRight=10;rounded=1;whiteSpace=wrap;" vertex="1" parent="tri_lane">
+                    <mxGeometry x="12" y="108" width="560" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="route_lane" value="" style="swimlane=1;horizontal=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;startSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="224" width="1320" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="cfg" value="config.toml&#10;chat_provider …&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;chat_provider 等字段&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1565C0;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="route_lane" vertex="1">
+                    <mxGeometry x="50" y="26" width="160" height="74" as="geometry"/>
+                </mxCell>
+                <mxCell id="factory" value="provider/factory.rs&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;解析 provider 字符串&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C0;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="route_lane" vertex="1">
+                    <mxGeometry x="240" y="31" width="220" height="69" as="geometry"/>
+                </mxCell>
+                <mxCell id="cloud" value="cloud /&#10;openhuman&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;OpenHuman 云服务&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#4A83DD;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="route_lane" vertex="1">
+                    <mxGeometry x="500" y="21" width="150" height="64" as="geometry"/>
+                </mxCell>
+                <mxCell id="byok" value="BYOK&#10;openai:…&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;自带 API Key&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#4A83DD;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="route_lane" vertex="1">
+                    <mxGeometry x="500" y="86" width="150" height="64" as="geometry"/>
+                </mxCell>
+                <mxCell id="local" value="local /&#10;ollama&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;Ollama 等本地模型&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#616161;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" vertex="1" parent="route_lane">
+                    <mxGeometry x="680" y="51" width="130" height="64" as="geometry"/>
+                </mxCell>
+                <mxCell id="reliable" value="reliable.rs&#10;重试 · fallback&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;重试 + model fallback&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#616161;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="route_lane" vertex="1">
+                    <mxGeometry x="840" y="31" width="170" height="69" as="geometry"/>
+                </mxCell>
+                <mxCell id="http" value="Provider.chat&#10;HTTP 流式&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#c5dafb;&quot;&gt;实际 HTTP 流式调用&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A83DD;strokeColor=#2E5A9E;fontColor=#ffffff;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;fontStyle=1;" parent="route_lane" vertex="1">
+                    <mxGeometry x="1040" y="31" width="160" height="69" as="geometry"/>
+                </mxCell>
+                <mxCell id="rt_e1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="route_lane" source="cfg" target="factory">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rt_e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="route_lane" source="factory" target="cloud">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rt_e3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="route_lane" source="factory" target="byok">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rt_e5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="route_lane" source="cloud" target="reliable">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rt_e6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="route_lane" source="byok" target="reliable">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rt_e7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="route_lane" source="reliable" target="http">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="route_lane_lbl" value="B. Workload 模型路由（config.toml）" style="text=1;html=1;strokeColor=#1565C0;fillColor=#E3F2FD;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#1a1a1a;spacingLeft=10;spacingRight=10;rounded=1;whiteSpace=wrap;" vertex="1" parent="route_lane">
+                    <mxGeometry x="12" y="204" width="560" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="err_lane" value="" style="swimlane=1;horizontal=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#616161;startSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="484" width="1320" height="132" as="geometry"/>
+                </mxCell>
+                <mxCell id="err1" value="429 / rate limit&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;Provider 返回 429&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#616161;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="err_lane" vertex="1">
+                    <mxGeometry x="50" y="18" width="170" height="66" as="geometry"/>
+                </mxCell>
+                <mxCell id="err2" value="web_errors.rs&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;解析错误类型&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE082;strokeColor=#F9A825;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="err_lane" vertex="1">
+                    <mxGeometry x="230" y="18" width="170" height="66" as="geometry"/>
+                </mxCell>
+                <mxCell id="err3" value="临时限流&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;RPM 临时限流&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="err_lane" vertex="1">
+                    <mxGeometry x="430" y="18" width="170" height="66" as="geometry"/>
+                </mxCell>
+                <mxCell id="err4" value="quota 用尽&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;billing quota 用尽&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;" parent="err_lane" vertex="1">
+                    <mxGeometry x="630" y="18" width="170" height="66" as="geometry"/>
+                </mxCell>
+                <mxCell id="err5" value="Conversations UI&lt;br&gt;&lt;font style=&quot;font-size:8px;color:#666666;&quot;&gt;展示用户可见文案&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#4A83DD;fontColor=#1a1a1a;fontSize=10;align=center;verticalAlign=top;spacingTop=4;;fontStyle=1;" parent="err_lane" vertex="1">
+                    <mxGeometry x="830" y="18" width="170" height="66" as="geometry"/>
+                </mxCell>
+                <mxCell id="err_e1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="err_lane" source="err1" target="err2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="err_e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="err_lane" source="err2" target="err3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="err_e3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="err_lane" source="err2" target="err4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="err_e4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="err_lane" source="err3" target="err5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="err_e5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#4A83DD;strokeWidth=2;endArrow=block;endFill=1;fontColor=#1a1a1a;" edge="1" parent="err_lane" source="err4" target="err5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="err_lane_lbl" value="C. 错误分类 → UI" style="text=1;html=1;strokeColor=#616161;fillColor=#F5F5F5;align=left;verticalAlign=middle;fontSize=13;fontStyle=1;fontColor=#1a1a1a;spacingLeft=10;spacingRight=10;rounded=1;whiteSpace=wrap;" vertex="1" parent="err_lane">
+                    <mxGeometry x="12" y="96" width="560" height="28" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
